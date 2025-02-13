@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffccd5;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .emoji-background {
+            position: absolute;
+            font-size: 20em;
+            color: rgba(255, 255, 0, 0.3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: fade-in-out 3s infinite alternate;
+        }
+
+        @keyframes fade-in-out {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .buttons {
+            margin-top: 20px;
+            z-index: 10;
+        }
+
+        .btn {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .no {
+            background-color: #dc3545;
+            color: white;
+            margin-left: 20px;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 3em;
+            color: red;
+            opacity: 0.8;
+            animation: heart-animation 2s infinite ease-in-out;
+        }
+
+        .heart-top-left { top: 10%; left: 10%; }
+        .heart-top-right { top: 10%; right: 10%; }
+        .heart-bottom-left { bottom: 10%; left: 10%; }
+        .heart-bottom-right { bottom: 10%; right: 10%; }
+
+        @keyframes heart-animation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            animation: sparkle 1.5s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+    </style>
+    <script>
+        function handleNoClick() {
+            let yesButton = document.querySelector('.yes');
+            let noButton = document.querySelector('.no');
+            let emoji = document.querySelector('.emoji-background');
+            yesButton.style.fontSize = '2.5em';
+            yesButton.style.padding = '15px 30px';
+            noButton.style.display = 'none';
+            emoji.innerHTML = '😭';
+            let noText = document.createElement('p');
+            noText.innerText = '("No" is not an option heheheh BEE MINEE!!!)';
+            noText.style.color = 'red';
+            noText.style.fontSize = '1.5em';
+            document.body.appendChild(noText);
+        }
+
+        function createSparkles() {
+            const sparkleContainer = document.querySelector('body');
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.animationDuration = `${Math.random() * 1 + 1.5}s`;
+                sparkleContainer.appendChild(sparkle);
+            }
+        }
+
+        window.onload = () => {
+            createSparkles();
+        };
+    </script>
+</head>
+<body>
+  
+    <div class="emoji-background">😊</div>
+    <h1>Will You Be My Valentine Feba? 💖</h1>
+    <div class="buttons">
+        <button class="btn yes" onclick="window.location.href=' https://ddsmysterio.github.io/Valentineee/deonpractice.html';">
+            Yes
+        </button>
+        <button class="btn no" onclick="handleNoClick()">No</button>
+    </div>
+
+    <div class="heart heart-top-left">❤️</div>
+    <div class="heart heart-top-right">❤️</div>
+    <div class="heart heart-bottom-left">❤️</div>
+    <div class="heart heart-bottom-right">❤️</div>
+</body>
+</html>
